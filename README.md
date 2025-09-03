@@ -1,7 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=0:8EC5FC,100:E0C3FC&height=200&section=header&text=Phanes%20Editor&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Real-time%20Collaboration%20on%20Code&descAlignY=60&descAlign=50)
 
 <h1>설치 없이 즐기는 실시간 코드 공유</h1>
-<h3>팀워크 강화, Phanes Editor로 완성하세요</h3>
+<h2>팀워크 강화, Phanes Editor로 완성하세요</h2>
 
 ---
 
@@ -25,29 +25,25 @@
 
 ---
 
-<h3>🌐 프론트엔드 주소</h3> 
-👉 <a href = "http://gomorebi.kro.kr">도메인 주소</a>
+<h2>🌐 프론트엔드 주소</h2> 
+👉 <a href = "http://gomorebi.kro.kr">바로가기</a>
 
-
----
 
 <br>
-<h3 id="devtools">⚙️ 기술 스택</h3>
+<h2 id="devtools">⚙️ 기술 스택</h2>
 
-<!-- Database -->
+<details><summary>👉 확인하기</summary>
 <h4>📂 Database</h4>
 <div>
   <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white">
 </div>
 
-<!-- Infrastructure -->
 <h4>☁️ Infrastructure (예정) </h4>
 <div>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
   <img src="https://img.shields.io/badge/AWS%20S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white">
 </div>
 
-<!-- Backend -->
 <h4>🚀 Backend</h4>
 <div>
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
@@ -58,7 +54,6 @@
   <img src="https://img.shields.io/badge/STOMP-006699?style=for-the-badge&logo=apachekafka&logoColor=white">
 </div>
 
-<!-- Frontend -->
 <h4>💻 Frontend</h4>
 <div>
   <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
@@ -67,7 +62,6 @@
   <img src="https://img.shields.io/badge/Monaco%20Editor-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
 </div>
 
-<!-- Tools -->
 <h4>🛠️ Tools</h4>
 <div>
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
@@ -76,17 +70,17 @@
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
 </div>
 
-<!-- Communication -->
 <h4>💬 Communication</h4>
 <div>
   <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
 </div>
-
+</details>
 
 ### 📖 API 명세서
-👉 <a href = "http://localhost:8080/swagger-ui/index.html">API 명세서</a>
+👉 <a href = "http://localhost:8080/swagger-ui/index.html">바로가기</a>
 
 ### 🚀 주요 기능
+<details><summary>👉 바로가기</summary>
 - 회원가입
 - 이메일 인증 기능
 - 로그인 기능
@@ -96,17 +90,19 @@
 - 실시간 코드 동시 편집 (Monaco Editor + STOMP)
 - 프로젝트별 실시간 채팅
 - 로그아웃
+</details>
 
 ## ✅ 기능 테스트
 
-각 주요 기능은 Swagger를 통해 직접 호출하여 검증하였습니다.  
-테스트 결과는 요청/응답 화면 캡처 및 실제 동작으로 정리하였습니다.  
+각 주요 기능은 Swagger를 통해 직접 호출하여 검증 
+
+테스트 결과는 요청/응답 화면 캡처 및 실제 동작으로 정리
 
 
 ### - 회원가입 API (`POST /user/signup`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청</h5>
 <img src="./assets/test/회원가입요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -116,7 +112,7 @@
 ### -  이메일인증 API (`POST /user/verify`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청</h5>
 <img src="./assets/test/이메일인증요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -128,7 +124,7 @@
 ### -  로그인 API (`POST /user/login`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청</h5>
 <img src="./assets/test/로그인요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -141,7 +137,7 @@
 ### - 프로필 조회 API (`POST /user/usr_mypage`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청 (전달받은 토큰을 통해 로그인 한 유저의 정보 조회)</h5> 
 <img src="./assets/test/프로필조회요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -151,7 +147,7 @@
 ### - 프로젝트 생성 API (`POST /project/create`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청</h5> 
 <img src="./assets/test/프로젝트생성요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -161,7 +157,7 @@
 ### - 프로젝트 검색 API (`POST /project/search`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청</h5> 
 <img src="./assets/test/프로젝트검색요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -171,7 +167,7 @@
 ### - 파일저장 API (`POST /user/signup`)
 
 <details>
-  <summary>👉 클릭해서 테스트 결과 보기</summary>
+  <summary>👉 바로가기</summary>
 <h5>요청</h5>
 <img src="./assets/test/파일저장요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
@@ -181,7 +177,7 @@
 ---
 
 ### ⚡ 성능 개선
-
+<details><summary>👉 바로가기</summary>
 <h4>1️⃣ 개선 전 (Users = 1000)</h4>
 <img src="./assets/test/성능개선1.png" width="80%" alt="성능개선 전">
 
@@ -251,7 +247,7 @@
     LAZY + BatchSize로 반복 IN 쿼리를 날리기보다,  
     <b>즉시 조인</b>으로 가져오는 것이 더 효율적<br>
     <i>⚠️ 단점:</i> EAGER Fetch는 항상 조인을 발생시켜 불필요한 데이터까지 로딩할 수 있음<br>
-    <i>✅ 하지만:</i> 우리 서비스에서는 <code>project_member</code> 조회 시 <b>user 데이터가 100% 필요</b>하기 때문에,  
+    <i>✅ 하지만:</i> 우리 서비스에서는 <code>project_member</code> 조회 시 <b>user 데이터가 100% 필요</b>가기 때문에,  
     불필요한 조인보다 <b>N+1 제거</b> 효과가 훨씬 크게 작용
   </li>
   <li>
@@ -260,7 +256,7 @@
     쿼리 호출 횟수가 여전히 많아 성능 저하 →  
     Fetch Join & EAGER 전략으로 대체해 <b>쿼리 수 최소화</b><br>
     <i>⚠️ 단점:</i> BatchSize는 일부 상황에서 여전히 유용할 수 있는 최적화 기법<br>
-    <i>✅ 하지만:</i> 우리 서비스의 경우 항상 대량 데이터가 필요하기 때문에  
+    <i>✅ 하지만:</i> 우리 서비스의 경우 항상 대량 데이터가 필요가기 때문에  
     BatchSize보다 <b>즉시 로딩 전략</b>이 더 안정적이고 효율적임
   </li>
 </ul>
@@ -294,10 +290,13 @@ where cl1_0.project_id=?;
 </code></pre>
 
 <p>➡️ 최종적으로 <b>3개의 쿼리</b>만 실행되며, 성능이 크게 향상됨 🚀</p>
+</details>
 
 ---
 
 ### 📏 코딩 컨벤션
+
+<details><summary>👉 바로가기</summary>
 <h4>📌 Response 처리</h4>
 <ul>
   <li><code>BaseResponse</code> 공통 응답 객체 사용</li>
@@ -344,7 +343,7 @@ public class BoardReq {
   <li><b>Spring Security Filter 기반 인증/인가</b> 사용</li>
   <li><code>LoginFilter</code>, <code>JwtAuthFilter</code> 등을 활용해 토큰 검증 및 인증 흐름 관리</li>
 </ul>
-
+</details>
 
 ### 🏗️ 시스템 아키텍처
 ![시스템 아키텍처](./assets/architecture/system-architecture.png)
