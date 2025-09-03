@@ -58,23 +58,14 @@ class ProjectServiceTest {
                 .build();
 
         // when
-        ProjectDto.ProjectAndMember response = projectService.save(request, authUser);
+        ProjectDto.ProjectRes response = projectService.save(request, authUser);
 
         // then
         assertNotNull(response);
-        assertEquals("프로젝트01", response.getProjectName());
-        assertEquals("프로젝트 설명01", response.getDescription());
-        assertEquals("JAVA", response.getLanguage());
-        assertEquals(1, response.getUserId());
-
-        assertEquals(1, response.getProjectMember().getIdx());
-        assertEquals("ADMIN", response.getProjectMember().getStatus());
-        assertEquals(1, response.getProjectMember().getUser().getIdx());
-        assertEquals(1, response.getProjectMember().getProject().getIdx());
-
+        assertEquals(1, response.getIdx());
     }
 
-    void productService_create_failed_email_validation() {
+    void productService_create_failed() {
 
     }
 }

@@ -32,8 +32,7 @@ public class ProjectController {
     @PostMapping("/create")
     public BaseResponse<ProjectDto.ProjectRes> projectCreate(@RequestBody ProjectDto.ProjectReq dto, @AuthenticationPrincipal UserDto.AuthUser authUser) {
         ProjectDto.ProjectRes result = projectService.save(dto, authUser);
-//        return ResponseEntity.status(200).body(result);
-        return null;
+        return BaseResponse.success(result);
     }
 
     @Operation(
@@ -41,7 +40,7 @@ public class ProjectController {
             description = "프로젝트의 내가 참여중인 프로젝트의 목록을 조회합니다."
     )
     @GetMapping("/list")
-    public BaseResponse projectList(@AuthenticationPrincipal UserDto.AuthUser authUser) {
+    public BaseResponse<List<ProjectDto.ProjectList>> projectList(@AuthenticationPrincipal UserDto.AuthUser authUser) {
         List<ProjectDto.ProjectList> result = projectService.list(authUser);
         return BaseResponse.success(result);
     }
@@ -51,13 +50,13 @@ public class ProjectController {
             description = "내가 고른 프로젝트의 파일, 맴버, 채팅을 조회합니다."
     )
     @GetMapping("/read")
-    public BaseResponse projectRead(@RequestParam Integer idx, @AuthenticationPrincipal UserDto.AuthUser authUser) {
+    public BaseResponse<ProjectDto.ProjectRead> projectRead(@RequestParam Integer idx, @AuthenticationPrincipal UserDto.AuthUser authUser) {
         ProjectDto.ProjectRead result = projectService.read(idx, authUser);
         return BaseResponse.success(result);
     }
 
     @GetMapping("/search")
-    public BaseResponse projectSearch(
+    public BaseResponse<Page<ProjectDto.ProjectSearchRes>> projectSearch(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String email,
             @RequestParam(required = false) String language,

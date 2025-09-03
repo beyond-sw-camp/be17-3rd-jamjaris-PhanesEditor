@@ -30,6 +30,8 @@ public class ProjectDto {
         @Schema(description = "프로젝트를 생성한 사용자의 idx", example = "입력 x")
         private Integer userId;
 
+//        private List<Integer>
+
         public Project toEntity(String url, User user) {
             Project.Language dtoLanguage = Project.projectLanguage(language);
             return Project.builder()

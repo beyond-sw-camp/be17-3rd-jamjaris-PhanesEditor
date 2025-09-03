@@ -41,18 +41,15 @@ public class ProjectControllerTest {
 
         assertEquals(HttpStatus.OK, resp.getStatusCode());
         assertNotNull(resp.getBody());
-        assertEquals("프로젝트01", resp.getBody().getProjectName());
-        assertEquals("프로젝트 설명01", resp.getBody().getDescription());
-        assertEquals("JAVA", resp.getBody().getLanguage());
-        assertEquals(1, resp.getBody().getUserId());
+        assertEquals(1,resp.getBody().getIdx());
     }
 
     @DisplayName("ProjectController 테스트 상세 조회 테스트")
     @Test
     @Order(2)
     public void testGetRead() {
-        ResponseEntity<ProjectDto.ProejctRead> resp =
-                testRestTemplate.exchange("/project/read/1", HttpMethod.POST, null, ProjectDto.ProejctRead.class);
+        ResponseEntity<ProjectDto.ProjectRead> resp =
+                testRestTemplate.exchange("/project/read/1", HttpMethod.POST, null, ProjectDto.ProjectRead.class);
 //        assertEquals(HttpStatus.OK, resp.getStatusCode());
 //        assertNotNull(resp.getBody());
 //        assertEquals("프로젝트01", resp.getBody().getProjectName());
