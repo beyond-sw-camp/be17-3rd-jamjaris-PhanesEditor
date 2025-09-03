@@ -89,11 +89,10 @@
 ### 🚀 주요 기능
 - 회원가입
 - 이메일 인증 기능
-- JWT + OAuth2 로그인 (카카오)
+- 로그인 기능
 - 프로필 조회
 - 프로젝트 생성
 - 프로젝트 검색
-- 파일 저장 기능
 - 실시간 코드 동시 편집 (Monaco Editor + STOMP)
 - 프로젝트별 실시간 채팅
 - 로그아웃
@@ -113,6 +112,31 @@
 <h5>응답</h5>
 <img src="./assets/test/회원가입응답.png" width="70%" alt="회원가입 응답 화면">
 </details>
+
+### -  이메일인증 API (`POST /user/verify`)
+
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+<h5>요청</h5>
+<img src="./assets/test/이메일인증요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
+<img src="./assets/test/이메일인증응답.png" width="70%" alt="회원가입 응답 화면">
+<h5>실제요청화면</h5>
+<img src="./assets/test/이메일인증.png" width="70%" alt="회원가입 응답 화면">
+</details>
+
+### -  로그인 API (`POST /user/login`)
+
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+<h5>요청</h5>
+<img src="./assets/test/로그인요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
+<img src="./assets/test/로그인응답.png" width="70%" alt="회원가입 응답 화면">
+</details>
+
+
+
 
 ### - 프로필 조회 API (`POST /user/usr_mypage`)
 
@@ -142,6 +166,16 @@
 <img src="./assets/test/프로젝트검색요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
 <img src="./assets/test/프로젝트검색응답.png" width="70%" alt="회원가입 응답 화면">
+</details>
+
+### - 파일저장 API (`POST /user/signup`)
+
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+<h5>요청</h5>
+<img src="./assets/test/파일저장요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
+<img src="./assets/test/파일저장응답.png" width="70%" alt="회원가입 응답 화면">
 </details>
 
 ---
