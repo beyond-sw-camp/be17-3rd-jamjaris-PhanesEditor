@@ -26,7 +26,7 @@
 ---
 
 <h2>🌐 프론트엔드 주소</h2> 
-👉 <a href = "http://gomorebi.kro.kr">바로가기</a>
+👉 <a href = "http://www.gomorebi.kro.kr">바로가기</a>
 
 
 <br>
@@ -352,3 +352,4 @@ public class BoardReq {
 ![소프트웨어 아키텍처](./assets/architecture/software-architecture.png)
 
 ---
+
