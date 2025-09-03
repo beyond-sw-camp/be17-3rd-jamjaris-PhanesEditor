@@ -32,6 +32,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
+
+
         Cookie[] cookies = request.getCookies();
         String jwt = null;
         if (cookies != null) {
@@ -40,6 +42,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     jwt = cookie.getValue();
                     break;
                 }
+            }
+        }
+        // ✅ 2. Authorization 헤더에서 토큰 찾기 (쿠키 없을 때)
+        if (jwt == null) {
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                jwt = authHeader.substring(7); // "Bearer " 이후 토큰 부분
             }
         }
 

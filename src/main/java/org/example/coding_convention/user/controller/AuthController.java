@@ -20,8 +20,7 @@ public class AuthController {
 
     @Operation(summary = "로그인", description = "이메일/비밀번호로 로그인 후 JWT 토큰을 발급합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "로그인 성공"),
-            @ApiResponse(responseCode = "401", description = "로그인 실패")
+            @ApiResponse(responseCode = "200", description = "로그인 성공")
     })
     @PostMapping("/login")
     public BaseResponse<AuthDto.LoginResponse> login(@RequestBody AuthDto.LoginRequest request) {
