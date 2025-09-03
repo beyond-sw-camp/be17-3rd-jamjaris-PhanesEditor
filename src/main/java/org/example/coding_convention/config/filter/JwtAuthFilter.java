@@ -20,20 +20,41 @@ import java.util.List;
 public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        String path = request.getRequestURI();
+        // ✅ Swagger 관련은 그냥 통과 //
+        if(path.startsWith("/swagger-ui")
+                ||path.startsWith("/v3/api-docs")
+                ||path.startsWith("/swagger-resources")
+                ||path.startsWith("/webjars"))
+
+        {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+
+
         Cookie[] cookies = request.getCookies();
         String jwt = null;
-        if(cookies != null) {
-            for(Cookie cookie: request.getCookies()) {
-                if(cookie.getName().equals("SJB_AT")) {
+        if (cookies != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals("SJB_AT")) {
                     jwt = cookie.getValue();
                     break;
                 }
             }
         }
+        // ✅ 2. Authorization 헤더에서 토큰 찾기 (쿠키 없을 때)
+        if (jwt == null) {
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                jwt = authHeader.substring(7); // "Bearer " 이후 토큰 부분
+            }
+        }
 
-        if( jwt != null) {
+        if (jwt != null) {
             Claims claims = JwtUtil.getClaims(jwt);
-            if(claims!= null) {
+            if (claims != null) {
                 String email = JwtUtil.getValue(claims, "email");
                 Integer idx = Integer.parseInt(JwtUtil.getValue(claims, "idx"));
                 String nickname = JwtUtil.getValue(claims, "nickname");

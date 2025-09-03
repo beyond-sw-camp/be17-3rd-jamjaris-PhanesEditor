@@ -8,6 +8,7 @@ import org.example.coding_convention.config.oauth.OAuth2AuthenticationSuccessHan
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -36,6 +37,12 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
+    }
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
@@ -69,12 +76,27 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(
                 (auth) -> auth
-                        .requestMatchers("/login", "/user/signup","/oauth2/**","/login/oauth2/**", "/user/**").permitAll()
-                        .requestMatchers("/test/*").hasRole("USER") // 특정 권한(USER)이 있는 사용자만 허용
-//                        .requestMatchers("/test/*").authenticated() // 로그인한 모든 사용자만 허용
-//                        .anyRequest().authenticated()
-                        .anyRequest().permitAll()
+                        // Swagger 관련 리소스는 항상 허용
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/swagger-resources/**",
+                                "/webjars/**"
+                        ).permitAll()
+
+                        // 로그인/회원가입/소셜 로그인은 허용
+                        .requestMatchers("/login", "/auth/**", "/user/signup", "/oauth2/**", "/login/oauth2/**","/user/verify").permitAll()
+
+                        // 테스트 API → USER 권한 필요
+                        .requestMatchers("/test/*").hasRole("USER")
+                        // 이메일 인증
+                        .requestMatchers("/user/verify").permitAll()
+
+                        // 나머지 모든 요청은 인증 필요
+                        .anyRequest().authenticated()
         );
+
         http.cors(cors ->
                 cors.configurationSource(corsConfigurationSource()));
 

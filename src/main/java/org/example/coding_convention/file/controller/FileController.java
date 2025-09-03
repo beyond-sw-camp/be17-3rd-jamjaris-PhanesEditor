@@ -1,6 +1,7 @@
 package org.example.coding_convention.file.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.example.coding_convention.common.model.BaseResponse;
 import org.example.coding_convention.file.model.FilesDto;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/file")
+@Tag(name = "File", description = "파일 관련 API")
 public class FileController {
 
     private final FileService fileService;

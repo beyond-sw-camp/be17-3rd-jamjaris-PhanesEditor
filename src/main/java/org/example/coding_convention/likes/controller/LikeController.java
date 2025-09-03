@@ -5,6 +5,7 @@ import org.example.coding_convention.common.model.BaseResponse;
 import org.example.coding_convention.likes.service.LikeService;
 import org.example.coding_convention.user.model.UserDto;
 import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LikeController {
     private final LikeService likeService;
 
-    @RequestMapping("/{idx}")
+    @GetMapping("/{idx}")
     public BaseResponse likes(@AuthenticationPrincipal UserDto.AuthUser authUser, @PathVariable Integer idx) {
         likeService.likes(authUser, idx);
 
