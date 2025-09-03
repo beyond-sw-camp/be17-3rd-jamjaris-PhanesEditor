@@ -21,7 +21,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String path = request.getRequestURI();
-        // ✅ Swagger 관련은 그냥 통과
+        // ✅ Swagger 관련은 그냥 통과 //
         if(path.startsWith("/swagger-ui")
                 ||path.startsWith("/v3/api-docs")
                 ||path.startsWith("/swagger-resources")
