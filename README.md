@@ -87,11 +87,13 @@
 👉 <a href = "http://localhost:8080/swagger-ui/index.html">API 명세서</a>
 
 ### 🚀 주요 기능
+- 회원가입
+- 이메일 인증 기능
 - JWT + OAuth2 로그인 (카카오)
 - 프로필 조회
 - 프로젝트 생성
-- 프로젝트 일반검색 및 상세검색
-- 프로젝트 참여
+- 프로젝트 검색
+- 파일 저장 기능
 - 실시간 코드 동시 편집 (Monaco Editor + STOMP)
 - 프로젝트별 실시간 채팅
 - 로그아웃
@@ -102,17 +104,47 @@
 테스트 결과는 요청/응답 화면 캡처 및 실제 동작으로 정리하였습니다.  
 
 
-### 🔐 회원가입 API (`POST /user/signup`)
+### - 회원가입 API (`POST /user/signup`)
 
 <details>
   <summary>👉 클릭해서 테스트 결과 보기</summary>
-
+<h5>요청</h5>
 <img src="./assets/test/회원가입요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
 <img src="./assets/test/회원가입응답.png" width="70%" alt="회원가입 응답 화면">
+</details>
 
+### - 프로필 조회 API (`POST /user/usr_mypage`)
 
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+<h5>요청 (전달받은 토큰을 통해 로그인 한 유저의 정보 조회)</h5> 
+<img src="./assets/test/프로필조회요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
+<img src="./assets/test/프로필조회응답.png" width="70%" alt="회원가입 응답 화면">
+</details>
 
+### - 프로젝트 생성 API (`POST /project/create`)
 
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+<h5>요청</h5> 
+<img src="./assets/test/프로젝트생성요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
+<img src="./assets/test/프로젝트생성응답.png" width="70%" alt="회원가입 응답 화면">
+</details>
+
+### - 프로젝트 검색 API (`POST /project/search`)
+
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+<h5>요청</h5> 
+<img src="./assets/test/프로젝트검색요청.png" width="70%" alt="회원가입 요청 화면">
+<h5>응답</h5>
+<img src="./assets/test/프로젝트검색응답.png" width="70%" alt="회원가입 응답 화면">
+</details>
+
+---
 
 ### ⚡ 성능 개선
 - 프로젝트 `likesCount` 컬럼 반정규화 → 조회 성능 개선
