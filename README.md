@@ -1,5 +1,3 @@
-<h1 align="center">Phanes Editor</h1>
-
 ![header](https://capsule-render.vercel.app/api?type=waving&color=0:8EC5FC,100:E0C3FC&height=200&section=header&text=Phanes%20Editor&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Real-time%20Collaboration%20on%20Code&descAlignY=60&descAlign=50)
 
 <h1>설치 없이 즐기는 실시간 코드 공유</h1>
@@ -98,10 +96,23 @@
 - 프로젝트별 실시간 채팅
 - 로그아웃
 
-### ✅ 기능 테스트
-- 단위 테스트 (JUnit5)
-- 통합 테스트 (SpringBootTest)
-- 프론트와 연동된 E2E 테스트 (Cypress)
+## ✅ 기능 테스트
+
+각 주요 기능은 Swagger를 통해 직접 호출하여 검증하였습니다.  
+테스트 결과는 요청/응답 화면 캡처 및 실제 동작으로 정리하였습니다.  
+
+
+### 🔐 회원가입 API (`POST /user/signup`)
+
+<details>
+  <summary>👉 클릭해서 테스트 결과 보기</summary>
+
+<img src="./assets/test/회원가입요청.png" width="70%" alt="회원가입 요청 화면">
+<img src="./assets/test/회원가입응답.png" width="70%" alt="회원가입 응답 화면">
+
+
+
+
 
 ### ⚡ 성능 개선
 - 프로젝트 `likesCount` 컬럼 반정규화 → 조회 성능 개선
