@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
-import org.example.coding_convention.file.model.FilesDto;
 import org.example.coding_convention.project.model.Project;
 import org.example.coding_convention.user.model.User;
 import org.example.coding_convention.user.model.UserDto;
@@ -31,7 +30,7 @@ public class ChatsDto {
 
     @Getter
     @Schema(description = "채팅 저장")
-    public static class Register {
+    public static class ChatRegister {
         @Schema(description = "채팅을 작성중인 프로젝트의 id", example = "1")
         private Integer projectId;
         @Schema(description = "채팅을 작성한 유저의 id", example = "입력 x")
