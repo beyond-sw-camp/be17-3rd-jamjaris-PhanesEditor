@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class ChatService {
     private final ChatsRepository chatsRepository;
 
-    public void save(ChatsDto.Register dto, UserDto.AuthUser aUser) {
+    public void save(ChatsDto.ChatRegister dto, UserDto.AuthUser aUser) {
         chatsRepository.save(dto.toEntity(aUser));
     }
 }

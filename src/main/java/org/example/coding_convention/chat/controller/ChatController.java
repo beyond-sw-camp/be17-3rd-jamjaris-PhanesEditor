@@ -20,10 +20,10 @@ public class ChatController {
 
     @Operation(
             summary = "채팅 저장",
-            description = "채팅을 하면 어떤 프로젝트의 누가 작성했는지 저장됨니다."
+            description = "채팅 저장 기능 누가 어떤 채팅을 작성했는지 저장됩니다."
     )
     @PostMapping("/register")
-    public BaseResponse register(@AuthenticationPrincipal UserDto.AuthUser authUser, @Valid @RequestBody ChatsDto.Register dto) {
+    public BaseResponse<String> chatRegister(@Valid @RequestBody ChatsDto.ChatRegister dto, @AuthenticationPrincipal UserDto.AuthUser authUser) {
         chatService.save(dto, authUser);
 
         return BaseResponse.success("파일 저장완료");
