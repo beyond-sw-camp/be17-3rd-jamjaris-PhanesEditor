@@ -71,6 +71,21 @@ public class ProjectDto {
                     .projectChat(projectChatList.stream().map(ChatsDto.ChatList::from).toList())
                     .build();
         }
+
+        public static ProjectRead from(Project entity) {
+            List<Files> filesList = entity.getFileList();
+            List<ProjectMember> projectMemberList = entity.getProjectMemberList();
+            List<Chats> projectChatList = entity.getChatsList();
+
+            return ProjectRead.builder()
+                    .idx(entity.getIdx())
+                    .projectName(entity.getProjectName())
+                    .language(entity.getLanguage().toString())
+                    .projectMember(projectMemberList.stream().map(ProjectMemberDto.ProjectMemberList::from).toList())
+                    .projectFile(filesList.stream().map(FilesDto.FilesList::from).toList())
+                    .projectChat(projectChatList.stream().map(ChatsDto.ChatList::from).toList())
+                    .build();
+        }
     }
 
     @Getter

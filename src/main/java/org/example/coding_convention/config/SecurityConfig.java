@@ -58,11 +58,6 @@ public class SecurityConfig {
         return source;
     }
 
-    // @Component vs @Bean
-    // @Component : 프로젝트가 실행될 때 컴포넌트 스캔을 통해서 객체를 생성해서 스프링 컨테이너에 Bean으로 등록
-    //              개발자가 직접 개발한 클래스의 객체를 등록할 때 사용
-    // @Bean : 컴포넌트 스캔 X, 개발자가 직접 객체를 생성해서 스프링 컨테이너에 Bean으로 등록
-    //              라이브러리를 가져와서 라이브러리의 객체를 등록할 때 사용
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.oauth2Login(config -> {
@@ -87,6 +82,9 @@ public class SecurityConfig {
 
                         // 로그인/회원가입/소셜 로그인은 허용
                         .requestMatchers("/login", "/auth/**", "/user/signup", "/oauth2/**", "/login/oauth2/**","/user/verify").permitAll()
+
+                        // 프로젝트 검색과 상세조회는 허용
+                        .requestMatchers("/project/read", "/project/search", "/file/read/**").permitAll()
 
                         // 테스트 API → USER 권한 필요
                         .requestMatchers("/test/*").hasRole("USER")

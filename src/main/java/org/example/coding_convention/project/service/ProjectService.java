@@ -22,7 +22,7 @@ import java.util.Optional;
 public class ProjectService {
     private final ProjectRepository projectRepository;
     private final ProjectMemberRepository projectMemberRepository;
-    private final ProjectQueryRepository  projectQueryRepository;
+    private final ProjectQueryRepository projectQueryRepository;
 
 
     public Page<ProjectDto.ProjectSearchRes> search(String projectName, String email, String language, Pageable pageable) {
@@ -60,11 +60,12 @@ public class ProjectService {
     }
 
     public ProjectDto.ProjectRead read(Integer idx, UserDto.AuthUser authUser) {
-//        Optional<Project> result = projectRepository.findById(idx);
-
         Optional<Project> result = projectRepository.findByProjectIdx(idx);
         if (result.isPresent()) {
             Project project = result.get();
+            if (authUser == null) {
+                return ProjectDto.ProjectRead.from(project);
+            }
             return ProjectDto.ProjectRead.from(project, authUser);
         }
         return null;
