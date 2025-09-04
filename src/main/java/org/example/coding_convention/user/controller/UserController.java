@@ -23,6 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -72,8 +74,8 @@ public class UserController {
             @ApiResponse(responseCode = "401", description = "인증 실패")
     })
     @GetMapping("/usr_mypage")
-    public BaseResponse usrMypage(@AuthenticationPrincipal UserDto.AuthUser authUser) throws MessagingException {
-        UserDto.Profile dto= userService.findProfile(authUser);
+    public BaseResponse usrMypage(@AuthenticationPrincipal UserDto.AuthUser authUser) {
+        UserDto.Profile dto = userService.findProfile(authUser);
 
         return BaseResponse.success(dto);
     }
@@ -86,7 +88,7 @@ public class UserController {
     @PostMapping("/usr_mypage/image")
     public BaseResponse uploadProfileImage(
             @RequestParam("profileImage") MultipartFile file,
-            @AuthenticationPrincipal UserDto.AuthUser authUser) throws MessagingException {
+            @AuthenticationPrincipal UserDto.AuthUser authUser) {
 
         String imagePath = userService.updateImage(file, authUser);
         return BaseResponse.success(imagePath);
@@ -107,7 +109,11 @@ public class UserController {
     public BaseResponse logout(HttpServletResponse response) {
         JwtUtil.deleteToken(response);
         return BaseResponse.success("로그아웃 완료");
-
     }
 
+    @GetMapping
+    public BaseResponse<List<UserDto.UserSearch>> userSearch(String nickname) {
+        List<UserDto.UserSearch> result = userService.userSearch(nickname);
+        return BaseResponse.success(result);
+    }
 }

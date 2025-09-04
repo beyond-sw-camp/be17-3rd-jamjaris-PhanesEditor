@@ -140,7 +140,20 @@ public class UserDto {
 
             return dto;
         }
+    }
 
+    @Getter
+    @Builder
+    public static class UserSearch {
+        private Integer idx;
+        private String nickname;
+
+        public static UserSearch from(User entity) {
+            return UserSearch.builder()
+                    .idx(entity.getIdx())
+                    .nickname(entity.getNickname())
+                    .build();
+        }
     }
 }
 
