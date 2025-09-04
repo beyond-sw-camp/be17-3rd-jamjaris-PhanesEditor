@@ -77,10 +77,10 @@
 </details>
 
 ### 📖 API 명세서
-👉 <a href = "http://localhost:8080/swagger-ui/index.html">바로가기</a>
+👉 <a href = "http://3.35.208.32:8080/swagger-ui/index.html">바로가기</a>
 
 ### 🚀 주요 기능
-<details><summary>👉 바로가기</summary>
+<details><summary>펼처보기</summary>
 - 회원가입
 - 이메일 인증 기능
 - 로그인 기능
