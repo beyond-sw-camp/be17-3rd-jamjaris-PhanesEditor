@@ -2,6 +2,7 @@ package org.example.coding_convention.file.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.coding_convention.common.model.BaseResponse;
 import org.example.coding_convention.file.model.FilesDto;
@@ -27,7 +28,7 @@ public class FileController {
             description = "파일 저장시 실행되는 기능"
     )
     @PostMapping("/register")
-    public BaseResponse register(@RequestBody FilesDto.Register dto) throws SQLException, IOException {
+    public BaseResponse register(@Valid @RequestBody FilesDto.Register dto) throws SQLException, IOException {
         fileService.save(dto);
 
         return BaseResponse.success("파일 저장완료");

@@ -17,7 +17,7 @@ import java.util.Map;
 public class UserDto {
 
     @Getter
-    @Schema(description = "회원가입 기능")
+    @Schema(name = "User.Register", description = "회원가입 기능")
     public static class Register {
         @Schema(description = "이메일 작성", example = "test01@test.com")
         @Pattern(message = "이메일 형식을 사용해주세요", regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
