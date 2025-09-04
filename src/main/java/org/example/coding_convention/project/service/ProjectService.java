@@ -33,8 +33,6 @@ public class ProjectService {
     }
 
     public ProjectDto.ProjectRes save(ProjectDto.ProjectReq dto, UserDto.AuthUser authUser) {
-        // url 생성 로직 아니면 dto 받자마자 dto에서 만들어도 될지도
-
         User userIdx = User.builder()
                 .idx(authUser.getIdx())
                 .build();
@@ -53,9 +51,16 @@ public class ProjectService {
                 .userId(userIdx.getIdx())
                 .status(status)
                 .build();
-        //TODO 유저 정보 리스트로 받아서 다 저장하게 만들기
         projectMemberRepository.save(memberDto.toEntity());
         // 저장이 진짜 되었는지 검증하고 싶으면 엔티티 반환해주면 됨
+        for (Integer memIdx : dto.getMemberIdx()) {
+            ProjectMemberDto.ProjectMemberReq projectMembers= ProjectMemberDto.ProjectMemberReq.builder()
+                    .projectId(projectIdx.getIdx())
+                    .userId(memIdx)
+                    .status("USER")
+                    .build();
+            projectMemberRepository.save(projectMembers.toEntity());
+        }
         return ProjectDto.ProjectRes.from(project);
     }
 

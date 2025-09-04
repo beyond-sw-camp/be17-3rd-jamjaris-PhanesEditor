@@ -105,14 +105,22 @@ public class UserController {
         return BaseResponse.success("이메일 인증완료");
     }
 
+    @Operation(
+            summary = "로그아웃",
+            description = "클라이언트의 토큰을 제거"
+    )
     @PostMapping("/logout")
     public BaseResponse logout(HttpServletResponse response) {
         JwtUtil.deleteToken(response);
         return BaseResponse.success("로그아웃 완료");
     }
 
-    @GetMapping
-    public BaseResponse<List<UserDto.UserSearch>> userSearch(String nickname) {
+    @Operation(
+            summary = "유저 검색",
+            description = "닉네임으로 유저를 검색"
+    )
+    @GetMapping("/search")
+    public BaseResponse<List<UserDto.UserSearch>> userSearch(@RequestParam String nickname) {
         List<UserDto.UserSearch> result = userService.userSearch(nickname);
         return BaseResponse.success(result);
     }
