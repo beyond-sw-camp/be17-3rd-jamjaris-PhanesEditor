@@ -26,10 +26,7 @@
 ---
 
 <h2>🌐 프론트엔드 주소</h2>
-👉 <a href = "https://d18gv8o6luos78.cloudfront.net/user/login">바로가기</a>
-
-[//]: # ( <a href = "www.gomorebi.kro.kr">바로가기</a>)
-[//]: # (<br>)
+👉 <a href = "https://www.gomorebi.kro.kr/">바로가기</a>
 <h2 id="devtools">⚙️ 기술 스택</h2>
 
 <details><summary>👉 확인하기</summary>
