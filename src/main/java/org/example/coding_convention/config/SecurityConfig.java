@@ -49,10 +49,11 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
         //configuration.setAllowedOrigins(List.of("http://localhost:5175") => 불편해서 전체경로 허용(개별용)
-        configuration.setAllowedOriginPatterns(List.of("*"));
+        configuration.setAllowedOrigins(
+                List.of("https://www.gomorebi.kro.kr")
+        );
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration); // 모든 경로에 대해 CORS 적용
         return source;
@@ -60,6 +61,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+
+        LoginFilter loginFilter = new LoginFilter(configuration.getAuthenticationManager());
+        loginFilter.setFilterProcessesUrl("/api/login"); // JWT 로그인 전용 URL
+
         http.oauth2Login(config -> {
                     config.userInfoEndpoint(
                             endpoint ->
@@ -92,7 +97,7 @@ public class SecurityConfig {
                         .requestMatchers("/user/verify").permitAll()
 
                         // 나머지 모든 요청은 인증 필요
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
         );
 
         http.cors(cors ->

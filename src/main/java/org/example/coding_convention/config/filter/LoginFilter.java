@@ -56,9 +56,18 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         if(jwt != null) {
             Cookie cookie = new Cookie("SJB_AT", jwt);
             cookie.setHttpOnly(true);
+            cookie.setSecure(true);
             cookie.setPath("/");
-            response.addCookie(cookie);
+            cookie.setDomain(".gomorebi.kro.kr");
+
+            String cookieString = String.format(
+                    "%s=%s; Path=/; Domain=.gomorebi.kro.kr; HttpOnly; Secure; SameSite=None",
+                    cookie.getName(), cookie.getValue()
+            );
+            response.addHeader("Set-Cookie", cookieString);
+
             response.getWriter().write(new ObjectMapper().writeValueAsString(UserDto.LoginRes.from(authUser)));
+
         }
 
 

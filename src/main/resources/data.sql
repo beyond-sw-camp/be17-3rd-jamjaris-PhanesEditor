@@ -141,7 +141,7 @@ VALUES ('admin@example.com', '관리자', '$2a$10$FWWMVBtbwDoYlxAdue1rV.pf8EKxbm
        ('user2@example.com', '유저2', '$2a$10$FWWMVBtbwDoYlxAdue1rV.pf8EKxbmQ.E9fj1.pQfkmfmddSzZe6m', NOW(), NOW(), 'LOCAL', 'ACTIVE', true),
        ('user3@example.com', '유저3', '$2a$10$FWWMVBtbwDoYlxAdue1rV.pf8EKxbmQ.E9fj1.pQfkmfmddSzZe6m', NOW(), NOW(), 'GOOGLE', 'ACTIVE', true),
        ('user4@example.com', '유저4', '$2a$10$FWWMVBtbwDoYlxAdue1rV.pf8EKxbmQ.E9fj1.pQfkmfmddSzZe6m', NOW(), NOW(), 'KAKAO', 'INACTIVE', true),
-       ('wnstjs1031@naver.com', '유저5', '$2a$10$FWWMVBtbwDoYlxAdue1rV.pf8EKxbmQ.E9fj1.pQfkmfmddSzZe6m', NOW(), NOW(), 'LOCAL', 'INACTIVE', true);
+       ('wnstjs031@naver.com', '유저5', '$2a$10$FWWMVBtbwDoYlxAdue1rV.pf8EKxbmQ.E9fj1.pQfkmfmddSzZe6m', NOW(), NOW(), 'LOCAL', 'INACTIVE', true);
 
 -- project (총 3개 프로젝트 생성)
 INSERT INTO project (project_name, url, description, language, creator_id, like_count)
