@@ -25,11 +25,11 @@
 
 ---
 
-<h2>🌐 프론트엔드 주소</h2> 
-👉 <a href = "http://www.gomorebi.kro.kr">바로가기</a>
+<h2>🌐 프론트엔드 주소</h2>
+👉 <a href = "http://phanes-editor-files-09-04.s3-website.ap-northeast-2.amazonaws.com">바로가기</a>
 
-
-<br>
+[//]: # ( <a href = "http://www.gomorebi.kro.kr">바로가기</a>)
+[//]: # (<br>)
 <h2 id="devtools">⚙️ 기술 스택</h2>
 
 <details><summary>👉 확인하기</summary>
