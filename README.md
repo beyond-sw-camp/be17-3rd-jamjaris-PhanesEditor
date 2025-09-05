@@ -25,11 +25,11 @@
 
 ---
 
-<h2>🌐 프론트엔드 주소</h2> 
-👉 <a href = "http://www.gomorebi.kro.kr">바로가기</a>
+<h2>🌐 프론트엔드 주소</h2>
+👉 <a href = "https://d18gv8o6luos78.cloudfront.net/user/login">바로가기</a>
 
-
-<br>
+[//]: # ( <a href = "www.gomorebi.kro.kr">바로가기</a>)
+[//]: # (<br>)
 <h2 id="devtools">⚙️ 기술 스택</h2>
 
 <details><summary>👉 확인하기</summary>
@@ -77,7 +77,7 @@
 </details>
 
 ### 📖 API 명세서
-👉 <a href = "http://3.35.208.32:8080/swagger-ui/index.html">바로가기</a>
+👉 <a href = "https://api.gomorebi.kro.kr/swagger-ui/index.html#">바로가기</a>
 
 ### 🚀 주요 기능
 <details><summary>펼처보기</summary>
@@ -352,4 +352,7 @@ public class BoardReq {
 ![소프트웨어 아키텍처](./assets/architecture/software-architecture.png)
 
 ---
+
+
+
 
