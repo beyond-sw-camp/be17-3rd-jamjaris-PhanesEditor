@@ -28,7 +28,7 @@
 <h2>🌐 프론트엔드 주소</h2>
 👉 <a href = "https://d18gv8o6luos78.cloudfront.net/user/login">바로가기</a>
 
-[//]: # ( <a href = "[https://www.gomorebi.kro.kr](https://www.gomorebi.kro.kr/)">바로가기</a>)
+[//]: # ( <a href = "www.gomorebi.kro.kr">바로가기</a>)
 [//]: # (<br>)
 <h2 id="devtools">⚙️ 기술 스택</h2>
 
@@ -352,6 +352,7 @@ public class BoardReq {
 ![소프트웨어 아키텍처](./assets/architecture/software-architecture.png)
 
 ---
+
 
 
 
