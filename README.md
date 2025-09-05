@@ -26,7 +26,7 @@
 ---
 
 <h2>🌐 프론트엔드 주소</h2>
-👉 <a href = "http://phanes-editor-files-09-04.s3-website.ap-northeast-2.amazonaws.com">바로가기</a>
+👉 <a href = "https://d18gv8o6luos78.cloudfront.net/user/login">바로가기</a>
 
 [//]: # ( <a href = "http://www.gomorebi.kro.kr">바로가기</a>)
 [//]: # (<br>)
