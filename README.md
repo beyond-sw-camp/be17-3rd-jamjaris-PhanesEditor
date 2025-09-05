@@ -161,7 +161,7 @@
 <img src="./assets/test/프로젝트검색응답.png" width="70%" alt="회원가입 응답 화면">
 </details>
 
-### - 파일저장 API (`POST /user/signup`)
+<!-- ### - 파일저장 API (`POST /user/signup`)
 
 <details>
   <summary>👉 바로가기</summary>
@@ -169,7 +169,7 @@
 <img src="./assets/test/파일저장요청.png" width="70%" alt="회원가입 요청 화면">
 <h5>응답</h5>
 <img src="./assets/test/파일저장응답.png" width="70%" alt="회원가입 응답 화면">
-</details>
+</details> -->
 
 ---
 
