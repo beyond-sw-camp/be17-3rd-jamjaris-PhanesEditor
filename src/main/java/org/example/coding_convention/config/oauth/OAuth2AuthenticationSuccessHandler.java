@@ -29,7 +29,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         if (jwt != null) {
             String cookieValue = String.format(
-                    "SJB_AT=%s; Path=/; Domain=.gomorebi.kro.kr; HttpOnly; Secure; SameSite=None; Max-Age=%d",
+                    "SJB_AT=%s; Path=/; Domain=gomorebi.kro.kr; HttpOnly; Secure; SameSite=None; Max-Age=%d",
                     jwt, 60 * 60 * 24
             );
             response.addHeader("Set-Cookie", cookieValue);

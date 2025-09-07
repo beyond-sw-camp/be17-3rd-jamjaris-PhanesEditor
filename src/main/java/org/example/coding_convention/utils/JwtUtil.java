@@ -34,12 +34,13 @@ public class JwtUtil {
 
     public static void deleteToken(HttpServletResponse response) {
 
-        Cookie cookie = new Cookie("SJB_AT", null); // 토큰값 제거
+        Cookie cookie = new Cookie("SJB_AT", null);
         cookie.setHttpOnly(true);
+        cookie.setSecure(true); // 로그인 때 Secure 줬다면 동일하게
         cookie.setPath("/");
-        cookie.setMaxAge(0); // 만료 즉시
+        cookie.setDomain("gomorebi.kro.kr"); // 로그인 때와 동일하게
+        cookie.setMaxAge(0); // 즉시 만료
         response.addCookie(cookie);
-
 
     }
 
