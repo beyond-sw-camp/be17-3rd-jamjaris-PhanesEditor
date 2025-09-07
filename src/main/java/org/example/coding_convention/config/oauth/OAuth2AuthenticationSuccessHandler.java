@@ -28,11 +28,13 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         String jwt = JwtUtil.generateToken(authUser.getEmail(), authUser.getIdx(), authUser.getNickname());
 
         if (jwt != null) {
-            Cookie cookie = new Cookie("SJB_AT", jwt);
-            cookie.setHttpOnly(true);
-            cookie.setPath("/");
-            response.addCookie(cookie);
-            response.getWriter().write(new ObjectMapper().writeValueAsString(UserDto.LoginRes.from(authUser)));
+            String cookieValue = String.format(
+                    "SJB_AT=%s; Path=/; Domain=.gomorebi.kro.kr; HttpOnly; Secure; SameSite=None; Max-Age=%d",
+                    jwt, 60 * 60 * 24
+            );
+            response.addHeader("Set-Cookie", cookieValue);
+            // 소셜 로그인 성공 후 프론트의 특정 경로로 이동
+            response.sendRedirect("https://www.gomorebi.kro.kr/oauth2/success");
         }
     }
 }
