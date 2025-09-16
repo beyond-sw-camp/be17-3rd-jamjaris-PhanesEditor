@@ -19,12 +19,12 @@ public class AuthChannelInterceptor implements ChannelInterceptor {
     public Message<?> preSend(Message<?> message, MessageChannel channel) {
         // 만료 시간 확인 추가
         // 특정 경로마다 권한 확인
-        StompHeaderAccessor accessor= MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
-        if(StompCommand.CONNECT.equals(accessor.getCommand())) {
+        StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
+        if (StompCommand.CONNECT.equals(accessor.getCommand())) {
             Map<String, Object> attributes = accessor.getSessionAttributes();
-            if( attributes != null) {
+            if (attributes != null) {
                 Authentication authentication = (Authentication) attributes.get("auth");
-                if(authentication != null) {
+                if (authentication != null) {
                     accessor.setUser(authentication);
                 }
             }
