@@ -51,14 +51,14 @@ jobs:
             docker rm -f phanes_server 2>/dev/null || true
             docker run -d --name phanes_server -p 443:8080 \
             --pull=always \
-            --env AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
-            --env AWS_S3_BUCKET=${{ secrets.AWS_S3_BUCKET }} \
-            --env AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+            --env AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY_ID }} \
+            --env S3_BUCKET=${{ secrets.AWS_S3_BUCKET }} \
+            --env AWS_SECRET_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
             --env DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
             --env DB_URL=${{ secrets.DB_URL }} \
             --env DB_USERNAME=${{ secrets.DB_USERNAME }} \
             --env MAIL_USERNAME=${{ secrets.MAIL_USERNAME }} \
-            --env MAIL_APP_PASSWORD=${{ secrets.MAIL_APP_PASSWORD }} \
-            --env KAKAO_CLIENT_ID=${{ secrets.KAKAO_CLIENT_ID }} \
-            --env KAKAO_CLIENT_SECRET=${{ secrets.KAKAO_CLIENT_SECRET }} \
+            --env MAIL_PASSWORD=${{ secrets.MAIL_APP_PASSWORD }} \
+            --env AUTH_ID=${{ secrets.KAKAO_CLIENT_ID }} \
+            --env AUTH_SECRET=${{ secrets.KAKAO_CLIENT_SECRET }} \
             ${{ secrets.DOCKERHUB_USERNAME }}/phanes-editor:${{ github.run_number }}
