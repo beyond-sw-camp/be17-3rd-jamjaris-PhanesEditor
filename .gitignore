@@ -39,4 +39,4 @@ out/
 ### 모든 로그파일 ###
 *.log
 
-#/src/main/resources/application.yml
+/src/main/resources/application.yml
