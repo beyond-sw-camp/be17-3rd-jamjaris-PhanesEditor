@@ -17,6 +17,22 @@ import java.util.List;
 
 public class ProjectDto {
 
+
+    @Getter
+    @Builder
+    public static class ProjectRun {
+        private Integer idx;
+        private String projectUrl;
+        private String projectDebugUrl;
+
+        public static ProjectRun from(String projectUrl, String projectDebugUrl) {
+            return ProjectRun.builder()
+                    .projectUrl(projectUrl)
+                    .projectDebugUrl(projectDebugUrl)
+                    .build();
+        }
+    }
+
     @Getter
     @Schema(description = "프로젝트 저장용 DTO")
     @Builder
@@ -159,7 +175,7 @@ public class ProjectDto {
         private ProjectMember projectMember;
 
         public ProjectDto.ProjectAndMember from(Project entity, ProjectMember member) {
-             ProjectMember projectMember1 = ProjectMember.builder()
+            ProjectMember projectMember1 = ProjectMember.builder()
                     .idx(member.getIdx())
                     .status(member.getStatus())
                     .user(member.getUser())

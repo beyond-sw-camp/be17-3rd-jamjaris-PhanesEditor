@@ -1,5 +1,6 @@
 package org.example.coding_convention.project.controller;
 
+import io.kubernetes.client.openapi.ApiException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Tag(name = "프로젝트")
@@ -24,6 +26,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProjectController {
     private final ProjectService projectService;
+
+    @Operation(
+            summary = "프로젝트 실행",
+            description = "프로젝트가 실행됩니다."
+    )
+    @GetMapping("/run")
+    public BaseResponse<ProjectDto.ProjectRun> projectRun(@RequestParam Integer idx, @AuthenticationPrincipal UserDto.AuthUser authUser) throws InterruptedException, ApiException, IOException {
+        ProjectDto.ProjectRun result = projectService.run(idx, authUser);
+        return BaseResponse.success(result);
+    }
 
     @Operation(
             summary = "프로젝트 생성",
