@@ -51,7 +51,7 @@ public class ProjectService {
                             .withRuntimeClassName(null)    // ✅ 기본 런타임 사용
                             .addNewContainer()
                             .withName("www")
-                            .withImage("nginx")
+                            .withImage("nginx:latest")
                             .endContainer()
                             .endSpec()
                             .build();
