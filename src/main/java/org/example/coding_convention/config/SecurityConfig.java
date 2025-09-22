@@ -50,7 +50,7 @@ public class SecurityConfig {
         configuration.setAllowCredentials(true);
         //configuration.setAllowedOrigins(List.of("http://localhost:5175") => 불편해서 전체경로 허용(개별용)
         configuration.setAllowedOrigins(
-                List.of("https://www.gomorebi.kro.kr")
+                List.of("https://www.gomorebi.kro.kr", "http://localhost:5173", "http://192.0.2.108:80")
         );
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
