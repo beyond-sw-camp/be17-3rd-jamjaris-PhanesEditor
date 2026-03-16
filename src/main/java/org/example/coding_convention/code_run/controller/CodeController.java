@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CodeController {
 
     @GetMapping("/run")
-    public BaseResponse<String> run(){
+    public BaseResponse<String> run() {
         return BaseResponse.success("입력 확인");
     }
 }
